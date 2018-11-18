@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Configuration</title>
+    <script type="text/javascript">
+      function show() {
+        var ssid=document.getElementById('ssid').value;
+        var pass=document.getElementById('pass').value;
+        var auth=document.getElementById('auth').value;
+        var email=document.getElementById('email').value;
+        if(ssid==""||pass==""||auth==""||email==""){
+          alert("Vui lòng điền đầy đủ thông tin!");
+        }
+      }
+    </script>
+    <style type="text/css">
+      body{
+        background-color: #24272a;
+      }
+      h1{
+        color: #00d58a;
+      }
+      td{
+        color:#ffffff;
+      }
+      #submit{
+        font-weight: bold;
+      }
+      #reboot{
+        margin-left: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Device Configuration</h1>
+      <br>
+      <h5 id="notification"></h5>
+      <br>
+      <form action = "" method = "POST">
+        <table>
+          <tr>
+            <td>SSID</td>
+            <td><input type="text" name="ssid" id="ssid" value=""></td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td><input type="text" name="pass" id="pass" value=""></td>
+          </tr>
+          <tr>
+            <td>Auth</td>
+            <td><input type="text" name="auth" id="auth" value=""></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" id="email" value=""></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button id="submit" type="submit" name="button" onclick="show()">Send Configuration</button></td>
+          </tr>
+        </table>
+      </form>
+    </center>
+  </body>
+</html>
