@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Device Configuration</title>
+  <meta charset="utf-8">
+  <script src='http://code.jquery.com/jquery-1.7.1.min.js'></script>
+</head>
+<style type="text/css">
+  body {
+    background-color: #24272a;
+  }
+
+  h1 {
+    color: #00d58a;
+  }
+
+  td {
+    color: #ffffff;
+  }
+
+  #submit {
+    font-weight: bold;
+  }
+
+  #reboot {
+    margin-left: 500px;
+  }
+</style>
+
+<body>
+  <center>
+    <h1>Device Configuration</h1>
+    <br>
+    <form action="/config" method="POST">
+      <table>
+        <tr>
+          <td>SSID</td>
+          <td><input type="text" name="ssid" id="ssid" value=""></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="text" name="pass" id="pass" value=""></td>
+        </tr>
+        <tr>
+          <td>Auth</td>
+          <td><input type="text" name="auth" id="auth" value=""></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="text" name="email" id="email" value=""></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button id="s" type="submit" name="button">Send Configuration</button></td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      $(document).ready(function () {
+        var checkField;
+        checkField1 = $("input#ssid").val().length;
+        checkField2 = $("input#pass").val().length;
+        checkField3 = $("input#auth").val().length;
+        checkField4 = $("input#email").val().length;
+        var enableDisableButton = function () {
+          if ((checkField1 > 0) && (checkField2 > 0) && (checkField3 > 0) && (checkField4 > 0)) {
+            $('#s').removeAttr("disabled");
+          }
+          else {
+            $('#s').attr("disabled", "disabled");
+          }
+        }
+        enableDisableButton();
+        $('input#ssid').keyup(function () {
+          checkField1 = $("input#ssid").val().length;
+          enableDisableButton();
+        });
+        $('input#pass').keyup(function () {
+          checkField2 = $("input#pass").val().length;
+          enableDisableButton();
+        });
+        $('input#auth').keyup(function () {
+          checkField3 = $("input#auth").val().length;
+          enableDisableButton();
+        });
+        $('input#email').keyup(function () {
+          checkField4 = $("input#email").val().length;
+          enableDisableButton();
+        });
+      });
+    </script>
+  </center>
+</body>
+</html>
