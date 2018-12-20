@@ -9,7 +9,7 @@ import unicodedata
 import thread
 
 
-files='/home/pi/hinh/{0}.jpeg' # link image local
+files='/home/pi/hinh/{0}.jpeg'
 f=open('/home/pi/config/auth.txt','r')
 auth=f.read(32)
 f.close()
@@ -17,7 +17,7 @@ e=open('/home/pi/config/email.txt','r')
 em=e.read().strip()
 e.close()
 #auth="5308db499c81455cac655562ba5967f0"
-notification='Warning!!!\nCo nguoi xam nhap nha cua ban!!\nAnh duoc chup tu nha cua ban, Link xem hinh anh se duoc gui qua email.'
+notification='The door is open, Image Link send to email'
 
 notify=Blynk(auth)
 sendmail=Blynk(auth)
